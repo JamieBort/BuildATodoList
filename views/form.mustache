@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <h1>Todo Form</h1>
+  <form action="/addTodo" method="post">
+    <input placeholder="List a Todo Item" type="text" name="name">
+    <button>Add ToDo Item</button>
+  </form>
+
+  // make this generate a list that grows with each item created
+  <ul>
+    {{#todo}} // replace "todo" with link to ...
+      <button type="button" name="button">Mark Complete</button>
+      <li>{{Todo}}</li>
+    {{/todo}} // replace "todo" with link to ...
+  </ul>
+
+  <h1>Completed Tasks</h1> // make this generate a list that grows with each item completed
+  <ul>
+    {{#completed}} // replace "completed" with link to ...
+
+      <li>{{Todo}}</li>
+    {{/completed}} // replace "completed" with link to ...
+  </ul>
+
+</body>
+
+</html>
