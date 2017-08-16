@@ -1,44 +1,65 @@
-// assign packages to variables
+// 1. require packages DONE
+// 2. use the boiler plate engine for mustacheExpress DONE
+// 3. use exrpress.static DONE
+// 4. define variables
+// 5. write get
+// 6. write post
+// 7. write post
+// 8. use app.listen(3000....) DONE
+
+// also create home.mustache file
+
+// require various packages
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const bodyParser = require('body-parser');
+const expressValidator = requre('exress-validator');
 const app = express();
-const todo = require('./todo');
-// probably not needed
-const fs = require( 'fs' );
 
-// tell express to use mustache
-app.engine('mustahe', mustacheExpress());
-app.set('views', './views');
+
+// boilerplate engine
+app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
+app.set('views', '/views');
 
-// configure the / path
-app.get('/form', function(request, response) {
-  response.send("Hello, good looking");
-});
 
-// create
-app.get('/', function(request, response) {
-  response.render('todo', {
-    todo: todo
-  })
-});
+// use express static
+app.use(express.static('public'));
 
-// take this for granted
-app.use(bodyParser.json());
+
+// use body parser
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-// create .....
-app.post('/addTodo', function(request, response) {
-  let todoItem = req.body;
-  todo.push(todoItem);
-  response.send('You added a ToDo Item');
-})
+// use validator
+app.use(expressValidator()); // this line must be immediately after any of the bodyParser middlewares
 
 
-// make express listen on port 3000
+// define variables ==========================
+
+
+// responses and requests
+// get information
+app.get('/', function(response, request) {
+  res.render('home', {
+// tie these items to the ones in the mustache file
+  });
+});
+
+
+// post information
+app.post('/', function(response, request) {
+  // popoulate variable
+  // push to array
+
+  // see http://expressjs.com/en/api.html for more info on redirect
+  res.redirect('/');
+});
+
+
+// open up the port
 app.listen(3000, function() {
-  console.log("The app is running");
+  console.log('The app is running');
 });
