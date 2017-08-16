@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>ToDoList</title>
-    <link rel="stylesheet" href="">
-  </head>
-  <body>
-    <!-- Title -->
-    <h1>To Do Page</h1>
 
-    <!-- Form -->
-    <form class="" action="index.html" method="post">
-      <input type="text" name="" value="">
-      <button type="button" name="button"></button>
-    </form>
+<head>
+  <meta charset="utf-8">
+  <title>ToDoList</title>
+  <link rel="stylesheet" href="">
+</head>
 
-    <!-- ToDo Items -->
+<body>
+  <!-- Title -->
+  <h1>To Do Page</h1>
 
-    <!-- Done Items -->
+  <!-- Form -->
+  <form id="input" action="/" method="post">
+    <input class="input" type="text" name="item" placeholder="Add an Item">
+    <input class="button" type="submit" name="" value="add">
+  </form>
 
-  </body>
+  <!-- ToDo Items -->
+  <h2>To Do Items</h2>
+  <ul>
+    {{#todo}}
+      <li>
+        <form class="" action="index.html" method="post">
+          <span>{{text}}</span>
+        </form>
+      </li>
+    {{/todo}}
+  </ul>
+
+  <!-- Done Items -->
+  <h2>Done Items</h2>
+  <ul>
+    {{#done}}
+      <li>{{text}}</li>
+    {{/done}}
+  </ul>
+
+</body>
+
 </html>
