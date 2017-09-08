@@ -22,7 +22,8 @@
   <ul>
     {{#todo}}
       <li>
-        <form class="" action="index.html" method="post">
+        <form class="" action="/{{id}}" method="post">
+          <input type="submit" value="x" />
           <span>{{text}}</span>
         </form>
       </li>
@@ -30,7 +31,7 @@
   </ul>
 
   <!-- Done Items -->
-  <h2>Done Items</h2>
+  <h2>Completed Items</h2>
   <ul>
     {{#done}}
       <li>{{text}}</li>
