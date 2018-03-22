@@ -20,7 +20,7 @@ const app = express();
 // boilerplate engine
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
-app.set('views', './views');
+app.set('views', './view');
 
 
 // use express static
