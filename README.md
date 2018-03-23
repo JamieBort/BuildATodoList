@@ -1,6 +1,11 @@
 from:https://newline.theironyard.com/cohorts/15/courses/10/projects/76
-Come back to add some styling.
-Come back to include a 'Done' button so that the completed items are moved down to the 'Done' list.
+
+TODO:
+1. Redo assignment to learn it better.
+2. Come back to include a 'Done' button so that the completed items are moved down to the 'Done' list.
+3. Come back to add some styling.
+4. Remove 'old' directory.
+5. Push to gh-pages
 
 **Build a todo list**
 Using Express and an in-memory data structure, build a real todo list application.

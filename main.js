@@ -11,9 +11,9 @@
 // require various packages
 const express = require('express'); // npm install express --save
 const app = express();
-var mustacheExpress = require('mustache-express'); // npm install mustache-express
-var bodyParser = require('body-parser') // npm install body-parser
-const expressValidator = require('express-validator'); // npm install express-validator
+var mustacheExpress = require('mustache-express'); // npm install mustache-express --save
+var bodyParser = require('body-parser') // npm install body-parser --save
+const expressValidator = require('express-validator'); // npm install express-validator --save
 
 // boilerplate engine
 // Register '.mustache' extension with The Mustache Express
@@ -29,14 +29,20 @@ app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
 
 // use validator
-app.use(expressValidator(middlewareOptions)); // this line must be immediately after any of the bodyParser middlewares
+app.use(expressValidator()); // this line must be immediately after any of the bodyParser middlewares
 
 
 // define variables ==========================
+// define two arrays and one integer variable
 
 // responses and requests
 // get information
-app.get('/', (req, res) => res.send('Hello World!'))
+// app.get('/', function (req, res) {
+// res.render('home', { // populate home.mustache view
+
+app.get('/', function (req, res) {
+  res.render('index', { title: 'Hey', message: 'Hello there!' })
+});
 
 // tie these items to the ones in the mustache file
 
@@ -46,7 +52,7 @@ app.get('/', (req, res) => res.send('Hello World!'))
 // post done information
 
 
-  // see http://expressjs.com/en/api.html for more info on redirect
+// see http://expressjs.com/en/api.html for more info on redirect
 
 
 

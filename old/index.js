@@ -46,7 +46,7 @@ let lastID = 0;
 // responses and requests
 // get information
 app.get('/', function(request, response) {
-  response.render('home', {
+  response.render('home', { // populate home.mustache view
 
 // tie these items to the ones in the mustache file
 todo:todoArray,
