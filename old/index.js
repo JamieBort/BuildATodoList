@@ -23,17 +23,17 @@ app.set('view engine', 'mustache');
 app.set('views', './view');
 
 
-// use express static
+// use express static. The middleware.
 app.use(express.static('public'));
 
 
-// use body parser
+// use body parser. More middleware.
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-// use validator
+// use validator. More middleware.
 app.use(expressValidator()); // this line must be immediately after any of the bodyParser middlewares
 
 
@@ -53,7 +53,6 @@ todo:todoArray,
 done: doneArray
   });
 });
-
 
 // post todo information
 app.post('/', function(request, response) {
@@ -88,9 +87,6 @@ app.post("/:id", function (request, response){
   // see http://expressjs.com/en/api.html for more info on redirect
   response.redirect('/');
 });
-
-
-
 
 // open up the port
 app.listen(3000, function() {
