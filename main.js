@@ -11,15 +11,15 @@
 // require various packages
 const express = require('express'); // npm install express --save
 const app = express();
-var mustacheExpress = require('mustache-express'); // npm install mustache-express --save
-var bodyParser = require('body-parser') // npm install body-parser --save
+const mustacheExpress = require('mustache-express'); // npm install mustache-express --save
+const bodyParser = require('body-parser') // npm install body-parser --save
 const expressValidator = require('express-validator'); // npm install express-validator --save
 
 // boilerplate engine
 // Register '.mustache' extension with The Mustache Express
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
-app.set('views', '/views');
+app.set('views', './views');
 
 // use express static
 app.use(express.static('public')); // from: https://expressjs.com/en/starter/static-files.html
