@@ -34,6 +34,9 @@ app.use(expressValidator()); // this line must be immediately after any of the b
 
 // define variables ==========================
 // define two arrays and one integer variable
+const mytodoarray = [];
+const mydonearray = [];
+let myintegervariable = 0;
 
 // responses and requests
 // get information
