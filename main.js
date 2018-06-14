@@ -44,9 +44,18 @@ app.use(expressValidator()); // this line must be immediately after any of the b
 
 // define variables ==========================
 // define two arrays and one integer variable
-const mytodoarray = [];
-const mydonearray = [];
+const info = [];
+const completed = [];
 let myintegervariable = 0;
+
+
+
+//========================================
+
+const todosArray = [];
+const doneArray = [];
+ let lastID = 0;
+// =======================================
 
 // responses and requests
 // get information
@@ -54,21 +63,58 @@ let myintegervariable = 0;
 // res.render('home', { // populate home.mustache view
 
 app.get('/', function (req, res) {
-  res.render('home', { title: 'Hey', message: 'Hello there!' })
+  res.render('home', {
+    data: todosArray,
+    doneList: doneArray
+    
+  });
 });
+
 
 // tie these items to the ones in the mustache file
 
 
 // post todo information
 app.post('/', function (req, res) {
-  res.send('POST request to homepage');
+  lastID += 1;
+  
+  todosArray.push({
+    id4: lastID, // Corresponds to {{id4}} in home.mustache
+    text2: req.body.item // Corresponds to {{text2}} in home.mustache
+  });
+  console.log(todosArray);
+  res.redirect("/");
 });
 
+
+
 // post done information
-app.post('/', function (req, res) {
-  res.post('Post again');
-})
+app.post("/:id3", function (req, res) {
+
+  let id2 = req.params.id3;
+
+  holding = todosArray.filter(function(li) {
+    return li.id4 == id2;
+  });
+
+  holding.forEach(function(li) {
+
+    let index = todosArray.indexOf(li);
+    if (index != -1){
+      todosArray.splice(index, 1);
+    }
+
+    doneArray.push(li);
+  })
+console.log(doneArray);
+    res.redirect('/');
+});
+
+
+
+
+
+
 
 
 // see http://expressjs.com/en/api.html for more info on redirect
