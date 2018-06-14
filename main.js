@@ -8,6 +8,7 @@
 // 8. use app.listen(3000....)
 // 9. create home.mustache file
 
+// =======================================
 // require various packages
 const express = require('express'); // npm install express --save
 const app = express();
@@ -20,11 +21,9 @@ const bodyParser = require('body-parser') // npm install body-parser --save
 // This body-parser module parses the JSON, buffer, string and URL encoded data submitted using HTTP POST request. Install body-parser using NPM as shown below.
 // npm install body-parser --save
 
-
-
-
 const expressValidator = require('express-validator'); // npm install express-validator --save
 
+// =======================================
 // boilerplate engine
 // Register '.mustache' extension with The Mustache Express
 app.engine('mustache', mustacheExpress());
@@ -41,27 +40,19 @@ app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-
 // use validator
 app.use(expressValidator()); // this line must be immediately after any of the bodyParser middlewares
 
-
-// define variables ==========================
-// define two arrays and one integer variable
-const info = [];
-const completed = [];
-let myintegervariable = 0;
+// The following line of code tells express to look in the public directory for the css file.
+app.use(express.static('public'));
 
 
-
-//========================================
-
+// =======================================
+// define variables ======================
 const todosArray = [];
 const doneArray = [];
  let lastID = 0;
-// =======================================
 
+ // =======================================
 // responses and requests
 // get information
-// app.get('/', function (req, res) {
-// res.render('home', { // populate home.mustache view
-
 app.get('/', function (req, res) {
   res.render('home', {
     data: todosArray,
@@ -70,10 +61,7 @@ app.get('/', function (req, res) {
   });
 });
 
-
-// tie these items to the ones in the mustache file
-
-
+// =======================================
 // post todo information
 app.post('/', function (req, res) {
   lastID += 1;
@@ -86,8 +74,7 @@ app.post('/', function (req, res) {
   res.redirect("/");
 });
 
-
-
+// =======================================
 // post done information
 app.post("/:id3", function (req, res) {
 
@@ -107,20 +94,9 @@ app.post("/:id3", function (req, res) {
     doneArray.push(li);
   })
 console.log(doneArray);
-    res.redirect('/');
+    res.redirect('/'); // see http://expressjs.com/en/api.html for more info on redirect
 });
 
-
-
-
-
-
-
-
-// see http://expressjs.com/en/api.html for more info on redirect
-
-
-
-
+// =======================================
 // open up the port
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
