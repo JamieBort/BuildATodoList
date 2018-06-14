@@ -20,32 +20,27 @@
 
 <!-- ToDo Items -->
 <h2>To Do Items</h2>
+
 {{#data}}
 
-
-          <li>
-            <form class="todo" action="/{{id4}}" method="post">
-              <input type="submit" value="x" />
-              <span>{{text2}}</span>
-            </form>
-          </li>
-
-
-
-
-<!-- <li>{{text2}}</li>
-<input type="submit" value="Completed" />
-<button>Completed</button> -->
-
+<li>
+  <form class="todo" action="/{{id4}}" method="post">
+    <input type="submit" value="x" />
+    <span>{{text2}}</span>
+  </form>
+</li>
 
 {{/data}}
 
-{{#doneList}}
-<span>{{text2}}</span>
-{{/doneList}}
 
 <!-- Done Items -->
 <h2>Done Items</h2>
+
+{{#doneList}}
+
+<span>{{text2}}</span>
+
+{{/doneList}}
 
 </body>
 </html>
